@@ -38,7 +38,9 @@ export class Sidebar {
    * Закрывает сайдбар и очищает поля.
    */
   close() {
+    
     this.sidebar.close();
+    this.clearSidebar();
     this.clearFields();
   }
 
@@ -108,6 +110,13 @@ export class Sidebar {
     }
   }
 
+ clearSidebar() {
+    const sidebarData = this?.sidebar?.getElementsByClassName("card_sidebar")
+
+    if(sidebarData.length > 0) {
+      Array.from(sidebarData).forEach(cards => cards.remove());
+    }
+ }
   /**
    * Прикрепляет обработчики событий.
    */
